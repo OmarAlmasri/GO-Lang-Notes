@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BOOT.DEV/7- Loops.md",
+                "file": "BOOT.DEV/8- Slices.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7- Loops"
+              "title": "8- Slices"
             }
           }
         ]
@@ -227,8 +227,9 @@
   },
   "active": "509ab792a053332f",
   "lastOpenFiles": [
-    "BOOT.DEV/6- Errors.md",
     "BOOT.DEV/7- Loops.md",
+    "BOOT.DEV/6- Errors.md",
+    "BOOT.DEV/8- Slices.md",
     "BOOT.DEV/5- Interfaces.md",
     "BOOT.DEV/4- Structs.md",
     "BOOT.DEV/3- Functions.md",
@@ -259,7 +260,6 @@
     "CRTP/15 - Introduction to EDR.md",
     "CRTP/11 - AD Domain Dominance & Kerberos.md",
     "CRTP/images/ACL_Mindmap.png.png",
-    "CRTP/3 - Offensive .NET - Tradecraft.md",
     "CRTP/images/ADCS - DPERSIST.png",
     "CRTP/images/ADCS - ESC.png",
     "CRTP/images/ADCS - THEFT.png",
