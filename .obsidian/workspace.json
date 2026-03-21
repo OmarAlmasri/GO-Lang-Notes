@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BOOT.DEV/8- Slices.md",
+                "file": "BOOT.DEV/9- Maps.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "8- Slices"
+              "title": "9- Maps"
             }
           }
         ]
@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 278.5
+    "width": 278.5,
+    "collapsed": true
   },
   "right": {
     "id": "39f9239001c8b1c0",
@@ -227,10 +228,11 @@
   },
   "active": "509ab792a053332f",
   "lastOpenFiles": [
+    "BOOT.DEV/5- Interfaces.md",
+    "BOOT.DEV/9- Maps.md",
+    "BOOT.DEV/8- Slices.md",
     "BOOT.DEV/7- Loops.md",
     "BOOT.DEV/6- Errors.md",
-    "BOOT.DEV/8- Slices.md",
-    "BOOT.DEV/5- Interfaces.md",
     "BOOT.DEV/4- Structs.md",
     "BOOT.DEV/3- Functions.md",
     "BOOT.DEV/2- Conditionals.md",
@@ -258,7 +260,6 @@
     "CRTP/2 - PowerShell.md",
     "CRTP/Practice Lab",
     "CRTP/15 - Introduction to EDR.md",
-    "CRTP/11 - AD Domain Dominance & Kerberos.md",
     "CRTP/images/ACL_Mindmap.png.png",
     "CRTP/images/ADCS - DPERSIST.png",
     "CRTP/images/ADCS - ESC.png",
