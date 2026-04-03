@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BOOT.DEV/10- Pointers.md",
+                "file": "BOOT.DEV/11- Packages & Modules.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10- Pointers"
+              "title": "11- Packages & Modules"
             }
           }
         ]
@@ -227,8 +227,9 @@
   },
   "active": "509ab792a053332f",
   "lastOpenFiles": [
-    "Pasted image 20260322213951.png",
     "BOOT.DEV/10- Pointers.md",
+    "BOOT.DEV/11- Packages & Modules.md",
+    "Pasted image 20260322213951.png",
     "BOOT.DEV/9- Maps.md",
     "BOOT.DEV/5- Interfaces.md",
     "BOOT.DEV/8- Slices.md",
