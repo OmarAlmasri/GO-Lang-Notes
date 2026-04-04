@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "70f68b8780fbd846",
+        "id": "01a711f6cca52842",
         "type": "tabs",
         "children": [
           {
-            "id": "509ab792a053332f",
+            "id": "a4d87416e1be026e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "BOOT.DEV/11- Packages & Modules.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "11- Packages & Modules"
+              "title": "New tab"
             }
           }
         ]
@@ -225,10 +221,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "509ab792a053332f",
+  "active": "a4d87416e1be026e",
   "lastOpenFiles": [
-    "BOOT.DEV/10- Pointers.md",
     "BOOT.DEV/11- Packages & Modules.md",
+    "BOOT.DEV/images",
+    "BOOT.DEV/images/modules.png",
+    "BOOT.DEV/10- Pointers.md",
     "Pasted image 20260322213951.png",
     "BOOT.DEV/9- Maps.md",
     "BOOT.DEV/5- Interfaces.md",
@@ -258,20 +256,17 @@
     "CRTP/7 - Domain Enumeration - Trusts.md",
     "CRTP/6 - Domain Enumeration - Group Policy (GPO, OU).md",
     "CRTP/5 - Domain Enumeration - ACLs.md",
-    "CRTP/Objectives/2 - Objective 3.md",
     "CRTP/Practice Lab",
     "CRTP/images/ACL_Mindmap.png.png",
     "CRTP/images/ADCS - DPERSIST.png",
     "CRTP/images/ADCS - ESC.png",
     "CRTP/images/ADCS - THEFT.png",
     "CRTP/images/Across External Trust - Trust Key Abuse.png",
-    "CRTP/images/Across External Trusts.png",
     "CRTP/Objectives",
     "CRTP/images",
     "CRTP",
     "4 - Information Gathering - Web",
     "3 - Footprinting/images",
-    "3 - Footprinting",
-    "2 - Network Enumeration with Nmap"
+    "3 - Footprinting"
   ]
 }
