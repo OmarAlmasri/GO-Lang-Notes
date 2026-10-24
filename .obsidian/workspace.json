@@ -11,10 +11,14 @@
             "id": "a4d87416e1be026e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Concurrency.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Concurrency"
             }
           }
         ]
@@ -38,7 +42,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -223,6 +229,8 @@
   },
   "active": "a4d87416e1be026e",
   "lastOpenFiles": [
+    "Concurrency.md",
+    "Gobyexample.com",
     "BOOT.DEV/11- Packages & Modules.md",
     "BOOT.DEV/images",
     "BOOT.DEV/images/modules.png",
@@ -266,7 +274,6 @@
     "CRTP/images",
     "CRTP",
     "4 - Information Gathering - Web",
-    "3 - Footprinting/images",
-    "3 - Footprinting"
+    "3 - Footprinting/images"
   ]
 }
