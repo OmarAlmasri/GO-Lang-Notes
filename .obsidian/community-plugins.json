@@ -1,6 +1,5 @@
 [
   "table-editor-obsidian",
-  "obsidian-admonition",
   "better-word-count",
   "better-export-pdf",
   "emoji-shortcodes",
@@ -11,5 +10,6 @@
   "obsidian-charts",
   "calendar",
   "code-styler",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-admonition"
 ]
