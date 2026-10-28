@@ -429,6 +429,10 @@ Wait!! Channels are not ready for execution
 
 # WaitGroup
 
+A `WaitGroup` lets your program wait until several goroutines have finished.
+
+Without it, `main()` might finish and terminate the entire program before your goroutines complete their work.
+
 Let's see a simple code snippet illustrating the problem we might face when using goroutines
 
 ```go
@@ -509,6 +513,7 @@ The problem is that, our executors executes in bit amount of time so we unnecess
 ```ad-note
 WaitGroup is concurrency safe, so its safe to pass pointer to it as argument for Groutines.
 ```
+
 ```go
 package main
 
@@ -549,3 +554,200 @@ func main() {
 ```
 
 The output is same as the `Sleep` program but we out program doesn't block for 1 sec .
+
+## Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func worker(id int) {
+	fmt.Printf("Worker %d starting\n", id)
+
+	// Simulate some work.
+	time.Sleep(time.Second)
+
+	fmt.Printf("Worker %d done\n", id)
+}
+
+func main() {
+	var wg sync.WaitGroup
+
+	for i := 1; i <= 5; i++ {
+		wg.Go(func() {
+			worker(i)
+		})
+	}
+
+	// Wait here until all five workers finish.
+	wg.Wait()
+
+	fmt.Println("All workers finished")
+}
+```
+
+Each call to `wg.Go(...)`:
+
+1. Starts the supplied function as a goroutine.
+2. Registers that goroutine with the `WaitGroup`.
+3. Automatically marks it as finished when the function returns.
+
+`wg.Wait()` pauses `main()` until every registered goroutine has finished. The workers can start and finish in a different order each time because they run concurrently
+
+## A small real-world analogy
+
+Imagine downloading three files concurrently:
+
+```go
+var wg sync.WaitGroup
+
+for _, url := range urls {
+	wg.Go(func() {
+		download(url)
+	})
+}
+
+wg.Wait()
+
+fmt.Println("All downloads completed")
+```
+
+---
+
+# Rate Limiting
+
+Rate limiting controls how often your program performs an action.
+
+ ## 1. Basic Rate Limiting
+
+We start by placing five requests in a channel:
+
+```go
+requests := make(chan int, 5)
+
+for i := 1; i <=5; i++ {
+	request <- i
+}
+
+close(requests)
+```
+
+We can imagine them as a queue
+
+```json
+request 1 → request 2 → request 3 → request 4 → request 5
+```
+
+Next, we create a **ticker**
+
+```go
+limiter := time.Tick(200 * time.Millisecond)
+```
+
+This produces a value on a channel approximately every **200 milliseconds**. Each value is like a permission slip saying:
+
+> “You may process one request now.”
+
+The requests are then handled:
+
+```go
+for req := range requests {
+	<-limiter
+	fmt.Println("request", req, time.Now())
+}
+```
+
+The most important line here is:
+
+```go
+<- limiter
+```
+
+it means:
+
+> “Wait until the ticker gives me permission before continuing.”
+
+The resulting timeline looks approximately like this:
+
+```text
+200 ms  → request 1
+400 ms  → request 2
+600 ms  → request 3
+800 ms  → request 4
+1000 ms → request 5
+```
+
+One request every 200 milliseconds equals:
+
+```text
+1000 ms ÷ 200 ms = 5 requests per second
+```
+
+Without `<-limiter`, all five requests could be processed almost immediately.
+
+## 2. Allowing Short Bursts
+
+Sometimes a strict gap between every request is too restrictive.
+
+Imagine a user has been inactive for a while and then suddenly clicks three buttons. You might want to:
+
+- Allow the first **3 requests immediately**.
+- Continue processing additional requests at **5 per second**.
+
+This is called **burstable rate limiting**.
+
+We first create a buffered channel:
+
+```go
+burstyLimiter := make(chan time.Time, 3)
+```
+
+Think of this as a bucket that can hold **three permission tokens.**
+
+Initially, it is filled:
+
+```go
+for range 3 {
+	burstyLimiter <- time.Now()
+}
+```
+
+A goroutine attempts to add another token every 200ms :
+
+```go
+go func() {
+	for t := range time.Tick(200 * time.Millisecond) {
+		burstyLimiter <- t
+	}
+}()
+```
+
+Requests consume those tokens:
+
+```go
+for req := range burstyRequests {
+	<-burstyLimiter
+	fmt.Println("request", req, time.Now())
+}
+```
+
+```ad-tldr
+Request 1 ─┐
+Request 2 ─┼─ Immediately
+Request 3 ─┘
+
+Request 4 ─── About 200 ms later
+Request 5 ─── About 200 ms after that
+```
+
+```ad-resources
+For production applications, the package [https://pkg.go.dev/golang.org/x/time/rate](https://pkg.go.dev/golang.org/x/time/rate) provides a ready-made token-bucket limiter:
+
+```go
+limiter := rate.NewLimiter(rate.Limit(5), 3)
+```

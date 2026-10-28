@@ -2,7 +2,7 @@
   "userAdmonitions": {
     "resources": {
       "type": "resources",
-      "color": "8, 201, 21",
+      "color": "6, 203, 19",
       "icon": {
         "name": "bookmark",
         "type": "font-awesome"
